@@ -2,23 +2,20 @@ package com.example.cl07_dadoalazar
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageView
-import java.util.Random
+import androidx.databinding.DataBindingUtil
+import com.example.cl07_dadoalazar.databinding.ActivityMainBinding
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var dado: ImageView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        //setContentView(R.layout.activity_main)
+        val binding : ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        val btnDado = findViewById<Button>(R.id.buttonTirarDado)
-        dado = findViewById(R.id.imageViewDado)
-
-        btnDado.setOnClickListener {
-            generarDadoAleatorio(dado)
+        binding.buttonTirarDado.setOnClickListener {
+            generarDadoAleatorio(binding.imageViewDado)
         }
 
     }
